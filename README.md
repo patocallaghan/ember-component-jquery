@@ -1,5 +1,7 @@
 # ember-component-jquery
 
+[![Build Status](https://travis-ci.org/patocallaghan/ember-component-jquery.svg?branch=master)](https://travis-ci.org/patocallaghan/ember-component-jquery)
+
 
 A collection of codemod's for ember-component-jquery.
 
