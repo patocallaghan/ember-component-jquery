@@ -9,15 +9,8 @@ A codemod for migrating Ember Component code from `this.$()` to `$(this.element)
 
 ## Usage
 
-To run a specific codemod from this project, you would run the following:
-
 ```
-npx ember-component-jquery <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
-
-# or
-
-yarn global add ember-component-jquery
-ember-component-jquery <TRANSFORM NAME> path/of/files/ or/some**/*glob.js
+npx ember-component-jquery this-jquery path/of/files/ or/some**/*glob.js
 ```
 
 ## Transforms
