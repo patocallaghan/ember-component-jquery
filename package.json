@@ -1,6 +1,7 @@
 {
   "name": "ember-component-jquery",
   "version": "0.1.0",
+  "description": "Codemod to migrate 'Classic' Ember Component code from using `this.$()` to use global jQuery.",
   "scripts": {
     "lint": "eslint --cache .",
     "test": "codemod-cli test",
@@ -10,8 +11,20 @@
   },
   "bin": "./bin/cli.js",
   "keywords": [
-    "codemod-cli"
+    "codemod-cli",
+    "codemod",
+    "ember",
+    "jquery"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patocallaghan/ember-component-jquery"
+  },
+  "bugs": {
+    "url": "https://github.com/patocallaghan/ember-component-jquery"
+  },
+  "homepage": "https://github.com/patocallaghan/ember-component-jquery#readme",
   "dependencies": {
     "codemod-cli": "^2.1.0"
   },

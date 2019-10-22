@@ -2,8 +2,10 @@
 
 [![Build Status](https://travis-ci.org/patocallaghan/ember-component-jquery.svg?branch=master)](https://travis-ci.org/patocallaghan/ember-component-jquery)
 
+[![npm](https://img.shields.io/npm/v/ember-component-jquery.svg?label=npm)](https://www.npmjs.com/package/ember-component-jquery)
 
-A collection of codemod's for ember-component-jquery.
+
+A codemod for migrating Ember Component code from `this.$()` to `$(this.element)`
 
 ## Usage
 
