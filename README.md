@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/v/ember-component-jquery.svg?label=npm)](https://www.npmjs.com/package/ember-component-jquery)
 
 
-A codemod for migrating Ember Component code from `this.$()` to `$(this.element)`
+A codemod for migrating Ember Component code from `this.$()` to `$(this.element)` and `Ember.$('.class')` to `$('.class')`;
 
 ## Usage
 
@@ -16,6 +16,7 @@ npx ember-component-jquery this-jquery path/of/files/ or/some**/*glob.js
 ## Transforms
 
 <!--TRANSFORMS_START-->
+* [ember-jquery](transforms/ember-jquery/README.md)
 * [this-jquery](transforms/this-jquery/README.md)
 <!--TRANSFORMS_END-->
 

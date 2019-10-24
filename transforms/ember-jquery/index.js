@@ -7,20 +7,14 @@ module.exports = function transformer(file, api) {
   let needsjQueryImport = false;
 
   let code = j(file.source)
-    .find(j.CallExpression, {
-      callee: {
-        object: {
-          type: 'ThisExpression',
-        },
-        property: {
-          name: '$',
-        },
-      },
+    .find(j.CallExpression, node => {
+      let id = node.callee.object && node.callee.object.name;
+      let prop = node.callee.property && node.callee.property.name;
+
+      return ['Ember', 'Em'].includes(id) && prop == '$';
     })
     .forEach(path => {
-      const args = path.node.arguments;
-      args.push(j.memberExpression(j.thisExpression(), j.identifier('element')));
-      j(path).replaceWith(j.callExpression(j.identifier('$'), args));
+      j(path).replaceWith(j.callExpression(j.identifier('$'), path.value.arguments));
       needsjQueryImport = true;
     })
     .toSource();
