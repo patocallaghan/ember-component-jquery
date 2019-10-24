@@ -1,20 +1,10 @@
 const { getParser } = require('codemod-cli').jscodeshift;
+const insertImportDeclaration = require('../../helpers/import');
 
 module.exports = function transformer(file, api) {
   const j = getParser(api);
 
-  let hasjQueryImport = false;
   let needsjQueryImport = false;
-
-  j(file.source)
-    .find(j.ImportDeclaration, {
-      source: {
-        value: 'jquery',
-      },
-    })
-    .forEach(() => {
-      hasjQueryImport = true;
-    });
 
   let code = j(file.source)
     .find(j.CallExpression, {
@@ -35,16 +25,9 @@ module.exports = function transformer(file, api) {
     })
     .toSource();
 
-  return j(code)
-    .find(j.Program)
-    .forEach(path => {
-      if (needsjQueryImport && !hasjQueryImport) {
-        let jqueryImport = j.importDeclaration(
-          [j.importDefaultSpecifier(j.identifier('$'))],
-          j.literal('jquery')
-        );
-        path.value.body.unshift(jqueryImport);
-      }
-    })
-    .toSource({ quote: 'single' });
+  if (needsjQueryImport) {
+    code = insertImportDeclaration(j, code, '$', 'jquery');
+  }
+
+  return code;
 };
